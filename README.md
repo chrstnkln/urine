@@ -1,4 +1,9 @@
 # urine
+[![test](https://github.com/chrstnkln/urine/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/chrstnkln/urine/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/chrstnkln/urine/branch/main/graph/badge.svg?token=3C47IWG6S9)](https://codecov.io/gh/chrstnkln/urine)
+![maintained](https://img.shields.io/badge/maintained-yes-brightgreen)
+[![pyversion](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
+
 ```urine``` encodes and decodes Python objects to and from binary data securely. It only encodes data and leaves out any functionality, which allows for safe deserialization from untrusted sources. Object types are detected automatically and attributes are encoded/decoded recursively, making ```urine``` very simple to use.
 ## Why use urine instead of pickle or JSON?
 Unlike [```pickle```](https://docs.python.org/3/library/pickle.html), ```urine``` does not encode nor decode functions. For instance, ```pickle``` provides a ```__reduce__``` method that is intended for reconstructing objects. It gets called every time an object is unpickled (deserialized). An attacker could easily return malicious code that would be executed every time the object is unpickled. This is a big deal braker for network applications that want to exchange Python objects between untrusted peers.
