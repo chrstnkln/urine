@@ -32,6 +32,6 @@ jobs:
       - name: Report coverage
         # ensures that coverage report is sent only once per workflow
         if: matrix.operating-system == 'ubuntu-latest' && matrix.python-version == '3.8'
-        uses: codecov/codecov-action@v3
-        with:
-          fail_ci_if_error: true
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
